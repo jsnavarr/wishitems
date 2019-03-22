@@ -16,18 +16,12 @@ def home(request):
 
 class ItemCreate(CreateView):
   model = Item
-  fields = ['description']
-  def form_valid(self, form):
-    return super().form_valid(form)  
-  success_url = ''
+  fields = '__all__'
+#   fields = ['description']
+#   def form_valid(self, form):
+#     return super().form_valid(form)  
+  success_url = '/'
 
-def item_delete(item_id):
-    print('item id: ', item_id)
-    # print(Item.objects.filter(id=item_id))
-    Item.objects.first(id=item_id).delete()
-    return redirect('')
-
-def about(request):
-    print('hi ABOUT')
-    return render(request, 'about.html')
-
+def item_delete(request, item_id):
+    Item.objects.filter(id=item_id).delete()
+    return redirect('items_index')

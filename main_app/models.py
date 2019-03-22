@@ -8,4 +8,4 @@ class Item(models.Model):
         max_length = 100,
     )
     def get_absolute_url(self):
-        return reverse('items_index', kwargs={})
+        return reverse('items_index', kwargs={'item_id': self.id})

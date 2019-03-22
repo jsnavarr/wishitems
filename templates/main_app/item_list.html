@@ -10,8 +10,8 @@
 </head>
 <body>
     <h1>Wish List Items</h1>
-    <hr>
-    <table class="pure-table" class="pure-table-striped">
+    {% if item_list.count > 0 %}
+    <table class="pure-table pure-table-striped">
         <thead>
             <tr>
                 <th>Description</th>
@@ -27,7 +27,8 @@
             {% endfor %}
         </tbody>
     </table>
-    {% if item_list.count == 0 %}
+    <hr>
+    {% else %}
         <h3>No Wish Items Exist</h3>
         <hr>
     {% endif %}
